@@ -1,0 +1,15 @@
+class ChatRoomChannel < ApplicationCable::Channel
+  def subscribed
+    chat_room = ChatRoom.find(params[:chat_room_id])
+    stream_for chat_room
+  end
+
+  private
+
+  def render_message(message)
+    ApplicationController.render(
+      partial: 'messages/message',
+      locals: { message: message }
+    )
+  end
+end

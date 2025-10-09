@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>Chat Rooms</h1>
+  <%= link_to "Create New Room", new_chat_room_path, class: "btn" %>
+
+  <% if @chat_rooms.any? %>
+    <% @chat_rooms.each do |chat_room| %>
+      <div class="chat-room">
+        <h3><%= chat_room.name %></h3>
+        <% if chat_room.description.present? %>
+          <p><%= chat_room.description %></p>
+        <% end %>
+        <p><%= pluralize(chat_room.messages.count, 'message') %></p>
+        <%= link_to "Join Chat", chat_room, class: "btn" %>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="container">
+      <p>No chat rooms yet.</p>
+      <%= link_to "Create the first one!", new_chat_room_path, class: "btn" %>
+    </div>
+  <% end %>
+</div>

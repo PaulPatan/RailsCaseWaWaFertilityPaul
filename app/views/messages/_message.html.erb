@@ -1,0 +1,5 @@
+<div class="message">
+  <strong><%= message.user.full_name %></strong>
+  <span><%= time_ago_in_words(message.created_at) %> ago</span>
+  <p><%= message.content %></p>
+</div>

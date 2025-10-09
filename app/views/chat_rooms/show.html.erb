@@ -1,0 +1,37 @@
+<div class="container">
+  <div>
+    <h1><%= @chat_room.name %></h1>
+    <% if @chat_room.description.present? %>
+      <p><%= @chat_room.description %></p>
+    <% end %>
+    <%= link_to "← Back to Rooms", chat_rooms_path, class: "btn" %>
+  </div>
+
+  <div id="messages-container" data-controller="chat-room" data-chat-room-room-id-value="<%= @chat_room.id %>">
+    <%= turbo_frame_tag "messages" do %>
+      <div id="messages">
+        <% @messages.each do |message| %>
+          <%= render partial: 'messages/message', locals: { message: message } %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="message-form">
+    <%= form_with model: [@chat_room, @message], 
+                  local: false, 
+                  data: { 
+                    controller: "message-form",
+                    action: "submit->message-form#submit"
+                  } do |form| %>
+      <%= form.text_area :content, 
+                        placeholder: "Type your message...", 
+                        rows: 3,
+                        data: { 
+                          message_form_target: "input",
+                          action: "keydown->message-form#handleKeydown"
+                        } %>
+      <%= form.submit "Send", data: { message_form_target: "submit" } %>
+    <% end %>
+  </div>
+</div>

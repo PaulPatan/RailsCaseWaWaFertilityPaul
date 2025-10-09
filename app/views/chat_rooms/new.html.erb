@@ -1,0 +1,33 @@
+<div class="container">
+  <h1>Create New Chat Room</h1>
+
+  <div class="form-container">
+    <%= form_with model: @chat_room, local: true do |form| %>
+      <% if @chat_room.errors.any? %>
+        <div class="flash-message alert">
+          <strong><%= pluralize(@chat_room.errors.count, "error") %> prohibited this chat room from being saved:</strong>
+          <ul style="text-align: left; margin-top: 10px;">
+            <% @chat_room.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="field">
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+      </div>
+
+      <div class="field">
+        <%= form.label :description %>
+        <%= form.text_area :description, rows: 4 %>
+      </div>
+
+      <div style="text-align: center;">
+        <%= link_to "Cancel", chat_rooms_path, class: "btn" %>
+        <%= form.submit "Create Chat Room" %>
+      </div>
+    <% end %>
+  </div>
+</div>
