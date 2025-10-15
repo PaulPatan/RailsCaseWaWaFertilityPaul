@@ -1,1 +1,88 @@
 @import "tailwindcss";
+
+/* Custom component classes that replicate our current design */
+@layer components {
+  .app-body {
+    @apply font-sans m-0 p-5 bg-gray-100 leading-relaxed;
+  }
+  
+  .app-nav {
+    @apply text-center bg-white p-5 rounded-lg mb-8 shadow-sm;
+  }
+  
+  .app-nav a, .app-nav span {
+    @apply mx-4 no-underline text-gray-700 font-medium hover:text-blue-600;
+  }
+  
+  .app-main {
+    @apply max-w-3xl mx-auto text-center;
+  }
+  
+  .flash-message {
+    @apply bg-green-100 text-green-800 p-4 rounded-lg my-5 mx-auto max-w-2xl text-center;
+  }
+  
+  .flash-message.alert {
+    @apply bg-red-100 text-red-800;
+  }
+  
+  .app-container {
+    @apply bg-white p-8 rounded-lg shadow-sm my-5 mx-auto max-w-2xl text-center;
+  }
+  
+  .form-container {
+    @apply max-w-sm mx-auto;
+  }
+  
+  .form-field {
+    @apply mb-5 text-left;
+  }
+  
+  .form-label {
+    @apply block mb-1 font-medium text-gray-700;
+  }
+  
+  .form-input {
+    @apply w-full p-2.5 border border-gray-300 rounded text-base box-border focus:outline-none focus:border-blue-600;
+  }
+  
+  .form-checkbox {
+    @apply w-auto mr-2 p-0 align-middle;
+  }
+  
+  .form-checkbox-label {
+    @apply inline mb-0 align-middle cursor-pointer;
+  }
+  
+  .app-button {
+    @apply bg-blue-600 text-white py-3 px-6 border-0 rounded cursor-pointer no-underline inline-block my-2.5 mx-1 text-base hover:bg-blue-800;
+  }
+  
+  .chat-room-card {
+    @apply bg-white p-5 my-4 mx-auto rounded-lg shadow-sm max-w-lg;
+  }
+  
+  .message-bubble {
+    @apply bg-gray-50 p-4 my-2.5 mx-auto rounded-lg max-w-lg text-left;
+  }
+  
+  .message-author {
+    @apply text-blue-600 font-semibold;
+  }
+  
+  .messages-container {
+    @apply max-h-96 overflow-y-auto border border-gray-300 p-5 my-5 mx-auto bg-white rounded-lg max-w-2xl;
+  }
+  
+  .message-form {
+    @apply my-5 mx-auto max-w-2xl;
+  }
+  
+  .app-links {
+    @apply mt-5;
+  }
+  
+  .app-links a {
+    @apply text-blue-600 no-underline mx-2.5 hover:underline;
+  }
+}

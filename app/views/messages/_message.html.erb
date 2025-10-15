@@ -1,5 +1,5 @@
-<div class="message">
-  <strong><%= message.user.full_name %></strong>
-  <span><%= time_ago_in_words(message.created_at) %> ago</span>
-  <p><%= message.content %></p>
+<div class="message-bubble">
+  <strong class="message-author"><%= message.user.full_name %></strong>
+  <span class="text-gray-600 text-sm ml-2"><%= time_ago_in_words(message.created_at) %> ago</span>
+  <p class="mt-2 mb-0"><%= message.content %></p>
 </div>
